@@ -6,7 +6,13 @@ let cors = require("cors")
 require("dotenv").config()
 
 app.use(express.json())
-app.use(cors())
+app.use(
+  cors({
+    origin: "https://enquiry-management-system-mern-kpp7.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+  })
+);
 app.use("/api/enquiry",enquiryRoutes)
 
 

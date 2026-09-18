@@ -28,9 +28,7 @@ export default function Enquiry() {
   let submit = (e) => {
     e.preventDefault();
 
-    axios
-      .post("https://enquiry-management-system-mern.vercel.app/api/enquiry/insert", formData)
-      .then((res) => {
+    axios.post("https://enquiry-management-system-mern.vercel.app/api/enquiry/insert", formData).then((res) => {
         console.log(res)
         if(res.data.status==='04'){
           Swal.fire({
@@ -87,9 +85,7 @@ export default function Enquiry() {
   // ================= GET ALL ENQUIRIES =================
 
   let getAllEnquiry = () => {
-    axios
-      .get("https://enquiry-management-system-mern.vercel.app/api/enquiry/list")
-      .then((res) => {
+    axios.get("https://enquiry-management-system-mern.vercel.app/api/enquiry/list").then((res) => {
         return res.data;
       })
       .then((Data) => {
@@ -116,9 +112,7 @@ export default function Enquiry() {
       cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .post(`https://enquiry-management-system-mern.vercel.app/api/enquiry/delete/${delId}`)
-          .then((res) => {
+        axios.post(`https://enquiry-management-system-mern.vercel.app/api/enquiry/delete/${delId}`).then((res) => {
             Swal.fire({
               title: "Deleted!",
               text: "Enquiry has been deleted successfully.",
@@ -165,9 +159,7 @@ export default function Enquiry() {
     e.preventDefault();
 
     if (formData._id) {
-      axios
-        .put(`https://enquiry-management-system-mern.vercel.app/api/enquiry/edit/${formData._id}`, formData)
-        .then((res) => {
+      axios.put(`https://enquiry-management-system-mern.vercel.app/api/enquiry/edit/${formData._id}`, formData).then((res) => {
           setFormData({
             name: "",
             email: "",

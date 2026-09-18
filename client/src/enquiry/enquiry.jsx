@@ -29,7 +29,7 @@ export default function Enquiry() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/enquiry/insert", formData)
+      .post("https://enquiry-management-system-mern.vercel.app/api/enquiry/insert", formData)
       .then((res) => {
         console.log(res)
         if(res.data.status==='04'){
@@ -88,7 +88,7 @@ export default function Enquiry() {
 
   let getAllEnquiry = () => {
     axios
-      .get("http://localhost:5000/api/enquiry/list")
+      .get("https://enquiry-management-system-mern.vercel.app/api/enquiry/list")
       .then((res) => {
         return res.data;
       })
@@ -117,7 +117,7 @@ export default function Enquiry() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .post(`http://localhost:5000/api/enquiry/delete/${delId}`)
+          .post(`https://enquiry-management-system-mern.vercel.app/api/enquiry/delete/${delId}`)
           .then((res) => {
             Swal.fire({
               title: "Deleted!",
@@ -166,7 +166,7 @@ export default function Enquiry() {
 
     if (formData._id) {
       axios
-        .put(`http://localhost:5000/api/enquiry/edit/${formData._id}`, formData)
+        .put(`https://enquiry-management-system-mern.vercel.app/api/enquiry/edit/${formData._id}`, formData)
         .then((res) => {
           setFormData({
             name: "",
